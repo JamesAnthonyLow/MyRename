@@ -1,0 +1,29 @@
+##!/bin/bash
+# Rename Episodes of a Show
+
+extension=$1
+a=1
+
+echo "This script will rename all files in the current directory with extension $1"
+echo "Proceed? y/n" 
+read -p "" answer
+
+if [ $answer == "y" ]
+then
+for file in *$extension; do
+
+if [ $a -lt 10 ]
+then
+mv "$file" "S0E0$a$extension"
+else
+mv "$file" "S0E$a$extension"
+
+fi
+
+	let a+=1
+
+done
+else
+	exit 0
+fi
+
